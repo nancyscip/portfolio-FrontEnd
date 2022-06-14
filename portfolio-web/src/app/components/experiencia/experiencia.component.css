@@ -1,0 +1,22 @@
+div{
+        background-color: #010005;
+    }
+
+h3{
+    color: #3a03bb;
+    text-decoration: underline;
+}
+h1{
+    margin-left: 20px;
+    font-style: italic;
+    color: #3a03bb;
+}
+
+.accordion-button{
+    background-color: grey;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+p{
+    color: cadetblue;
+}

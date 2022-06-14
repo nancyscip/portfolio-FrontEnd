@@ -1,0 +1,48 @@
+.row{
+    padding: 20px;
+}
+
+div{
+    background-color: #010005;
+    text-align: center;
+}
+
+/*id fotodeperfil*/
+  @media(min-width:576px){
+  #fotodeperfil{
+position:absolute;
+width: 10%;
+border-radius: 100%;
+box-shadow: 3px 3px 3px blue;
+left: 7%;
+top: 720px;
+  }
+}
+@media(max-width:576px){
+    #fotodeperfil{
+  position:absolute;
+  width: 10%;
+  border-radius: 100%;
+  box-shadow: 3px 3px 3px blue;
+  left: 7%;
+  top: 720px;
+    }
+  }
+
+  /*id nombre*/
+#nombre{
+  margin-top: 7%;
+    font-weight: bolder;
+    font-size: xx-large;
+    font-family: Arial, Helvetica, sans-serif;
+    
+  }
+
+  /*id titulo*/
+  #titulo{
+    font-weight: bold;
+  }
+h1{
+  font-style: italic;
+  color: #3a03bb;
+}

@@ -1,0 +1,12 @@
+#logoAP{
+    width: 12%;
+    height: 12%;
+    display: inline-flex
+}
+img.alineadoCentroImagenCentro{
+    vertical-align: middle;
+}
+b{
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+}
