@@ -25,7 +25,7 @@ top: 720px;
   border-radius: 100%;
   box-shadow: 3px 3px 3px blue;
   left: 7%;
-  top: 720px;
+  top: 1100px;
     }
   }
 
@@ -33,7 +33,7 @@ top: 720px;
 #nombre{
   margin-top: 7%;
     font-weight: bolder;
-    font-size: xx-large;
+    font-size:x-large ;
     font-family: Arial, Helvetica, sans-serif;
     
   }

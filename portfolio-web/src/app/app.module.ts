@@ -10,7 +10,6 @@ import { ExperienciaComponent } from './components/experiencia/experiencia.compo
 import { EducacionComponent } from './components/educacion/educacion.component';
 import { HardysoftComponent } from './components/hardysoft/hardysoft.component';
 import { LogoApComponent } from './components/logo-ap/logo-ap.component';
-import { RedesComponent } from './components/redes/redes.component';
 import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
@@ -28,7 +27,6 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     EducacionComponent,
     HardysoftComponent,
     LogoApComponent,
-    RedesComponent,
     ProyectosComponent,
   ],
   imports: [
