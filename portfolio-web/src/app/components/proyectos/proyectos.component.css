@@ -1,0 +1,13 @@
+div{
+    background-color: #010005;
+}
+
+h1{
+    margin-left: 20px;
+    font-style: italic;
+    color: #3a03bb;
+}
+.card-body{
+    background-color: grey;
+    border-color: blue;
+}
