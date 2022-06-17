@@ -2,6 +2,17 @@ img{
     width: 100%;
     height: 600px;
 }
-div{
+.row{
     background-color: #010005;
+}
+.centrado{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(79, 76, 83);
+    font-size: xx-large;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: italic;
+    text-align: center;
 }

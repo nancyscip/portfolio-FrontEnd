@@ -1,8 +1,9 @@
 .row{
-    padding: 20px;
     background-color: #010005;
     }
 
-h1{
-    font-style: italic;
-}
+    h1{
+        margin-left: 20px;
+        font-style: italic;
+        color: #3a03bb;
+    }

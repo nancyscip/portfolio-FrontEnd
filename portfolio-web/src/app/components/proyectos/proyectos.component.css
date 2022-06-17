@@ -1,7 +1,9 @@
 div{
     background-color: #010005;
 }
-
+br{
+    background-color: #010005;
+}
 h1{
     margin-left: 20px;
     font-style: italic;
@@ -13,4 +15,10 @@ h1{
 }
 .card w-75{
     border-width: medium;
+}
+footer{
+    background-color: #010005;
+    color: #fefefe;
+    text-align: center;
+    text-shadow: dimgray;
 }
