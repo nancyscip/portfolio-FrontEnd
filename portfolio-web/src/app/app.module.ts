@@ -14,8 +14,10 @@ import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { createPopper } from '@popperjs/core/lib/popper-lite.js';
-import {DragDropModule} from '@angular/cdk/drag-drop';
-
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { LoginComponent } from './components/login/login.component';
+import { ContactoComponent } from './components/contacto/contacto.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,10 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     HardysoftComponent,
     LogoApComponent,
     ProyectosComponent,
+    LoginComponent,
+    ContactoComponent,
   ],
+  
   imports: [
     BrowserModule,
     AppRoutingModule,
