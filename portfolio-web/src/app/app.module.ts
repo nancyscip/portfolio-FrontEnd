@@ -16,7 +16,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { createPopper } from '@popperjs/core/lib/popper-lite.js';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { LoginComponent } from './components/login/login.component';
-import { ContactoComponent } from './components/contacto/contacto.component';
+import { LoginService} from './login.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
@@ -31,7 +31,6 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     LogoApComponent,
     ProyectosComponent,
     LoginComponent,
-    ContactoComponent,
   ],
   
   imports: [
@@ -40,7 +39,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     NgbModule,
     NgCircleProgressModule.forRoot({}),
   ],
-  providers: [],
+  providers: [LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

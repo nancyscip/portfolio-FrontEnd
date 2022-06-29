@@ -46,3 +46,9 @@ h1{
   font-style: italic;
   color: #3a03bb;
 }
+h5{
+  color: #3a03bb;
+}
+#mail, #telefono, #ciudad{
+  font-style: italic;
+}
