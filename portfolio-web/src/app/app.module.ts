@@ -18,6 +18,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { LoginComponent } from './components/login/login.component';
 import { LoginService} from './login.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     AppRoutingModule,
     NgbModule,
     NgCircleProgressModule.forRoot({}),
+    HttpClientModule, 
   ],
   providers: [LoginService],
   bootstrap: [AppComponent]
