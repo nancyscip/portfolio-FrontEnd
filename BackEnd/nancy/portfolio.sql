@@ -1,2 +1,1 @@
-insert into experiencia_laboral
-values(5, 'Recepcionista y Telefonista', 'Remisses Santa Rita',0 , '2002-10-01', '2003-02-28', 'Atención de clientes en forma personal y telefónica. Registro de las asientos en el libro diario de la empresa.', 1, 5)
+SELECT * FROM portfolio.persona;

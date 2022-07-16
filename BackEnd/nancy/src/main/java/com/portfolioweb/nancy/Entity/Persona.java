@@ -1,36 +1,58 @@
 
 package com.portfolioweb.nancy.Entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
+import java.io.Serializable;
 
 @Getter @Setter
 @Entity
-public class Persona {
+public class Persona implements Serializable {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY )
+    @GeneratedValue(strategy = GenerationType.AUTO )
+    @Column(nullable = false, updatable = false)
     private Long id;
     
-    
-    @NotNull
-    @Size(min = 1, max = 50, message = "no cumple con la longitud")
     private String nombre;
-    
-    @NotNull
-    @Size(min = 1, max = 50, message = "no cumple con la longitud")
     private String apellido;
-    
-    @Size(min = 1, max = 50, message = "no cumple con la longitud")
+    private String telefono;
+    private String correo;
+    private String sobre_mi;
+    private String domicilio;
     private String img;
-
-
+    private String titulo;
     
+    public Persona(){
+    }
+    public Persona(Long id, String nombre, String apellido, String telefono, String correo, String sobre_mi, String img, String titulo){
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.telefono = telefono;
+        this.correo = correo;
+        this.sobre_mi = sobre_mi;
+        this.domicilio = domicilio;
+        this.img = img;
+        this.titulo = titulo;
+    }
     
+    @Override
+    public String toString(){
+        return "Persona{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", apellido=" + apellido + '\'' +
+                ", telefono=" + telefono + '\'' +
+                ", correoo=" + correo + '\'' +
+                ", sobre_mi=" + sobre_mi + '\'' +
+                ", domicilio=" + domicilio + '\'' +
+                ", img=" + img + '\'' +
+                ", titulo=" + titulo + '\'' +
+                '}';
+    }
+
 }

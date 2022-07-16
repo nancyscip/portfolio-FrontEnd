@@ -4,55 +4,48 @@ import com.portfolioweb.nancy.Entity.Persona;
 import com.portfolioweb.nancy.Interface.IPersonaService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
+
+@RequestMapping("/persona")
 public class PersonaController {
-    @Autowired IPersonaService ipersonaService;
-    
-    @GetMapping("personas/traer")
-    public List<Persona> getPersona(){
-        return ipersonaService.getPersona();
+    private final IPersonaService iPersonaService;
+
+    public PersonaController(IPersonaService iPersonaService) {
+        this.iPersonaService = iPersonaService;
     }
-    
-    @PostMapping("/personas/crear")
-    public String createPersona(@RequestBody Persona persona){
-        ipersonaService.savePersona(persona);
-        return "La persona fue creada con éxito";
+
+    @GetMapping("/all")
+public ResponseEntity<List<Persona>> getAllPersonas(){
+        List<Persona> personas = iPersonaService.findAllPersonas();
+        return new ResponseEntity<>(personas, HttpStatus.OK);
     }
-    
-    @DeleteMapping("/personas/borrar/{id}")
-    public String deletePersona(@PathVariable Long id){
-        ipersonaService.deletePersona(id);
-        return "La persona fue eliminada con éxito";
+
+    @GetMapping("/find/{id}")
+    public ResponseEntity<Persona> getPersonaById(@PathVariable("id") Long id){
+       Persona persona = iPersonaService.findPersonaById(id);
+        return new ResponseEntity<>(persona, HttpStatus.OK);
     }
-    
-    @PutMapping("/personas/editar/{id}")
-    public Persona editPersona(@PathVariable Long id,
-                                @RequestParam("nombre") String nuevoNombre,
-                                @RequestParam("apellido") String nuevoApellido,
-                                @RequestParam("img") String nuevoImg){
-    Persona persona = ipersonaService.findPersona(id);
-    
-    persona.setNombre(nuevoNombre);
-    persona.setApellido(nuevoApellido);
-    persona.setImg(nuevoImg);
-    
-    ipersonaService.savePersona(persona);
-    return persona;
+
+    @PostMapping("/add")
+public ResponseEntity<Persona> addPersona(@RequestBody Persona persona){
+        Persona  newPersona = iPersonaService.addPersona(persona);
+        return new ResponseEntity<>(newPersona, HttpStatus.CREATED);
     }
-    
-    @GetMapping("/personas/traer/perfil")
-    public Persona findPersona(){
-        return ipersonaService.findPersona((long)1);
+
+    @PutMapping("/update")
+    public ResponseEntity<Persona> updatePersona(@RequestBody Persona persona){
+        Persona  updatePersona = iPersonaService.updatePersona(persona);
+        return new ResponseEntity<>(updatePersona, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Persona> deletePersona(@PathVariable("id") Long id){
+        iPersonaService.deletePersona(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

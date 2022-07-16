@@ -14,11 +14,11 @@ import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { createPopper } from '@popperjs/core/lib/popper-lite.js';
-import { DragDropModule } from '@angular/cdk/drag-drop';
 import { LoginComponent } from './components/login/login.component';
 import { LoginService} from './login.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
