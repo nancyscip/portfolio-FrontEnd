@@ -47,7 +47,7 @@ public class Persona implements Serializable {
                 ", nombre='" + nombre + '\'' +
                 ", apellido=" + apellido + '\'' +
                 ", telefono=" + telefono + '\'' +
-                ", correoo=" + correo + '\'' +
+                ", correo=" + correo + '\'' +
                 ", sobre_mi=" + sobre_mi + '\'' +
                 ", domicilio=" + domicilio + '\'' +
                 ", img=" + img + '\'' +

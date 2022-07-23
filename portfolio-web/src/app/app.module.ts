@@ -12,12 +12,13 @@ import { HardysoftComponent } from './components/hardysoft/hardysoft.component';
 import { LogoApComponent } from './components/logo-ap/logo-ap.component';
 import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { createPopper } from '@popperjs/core/lib/popper-lite.js';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './components/login/login.component';
 import { LoginService} from './login.service';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { PersonaService } from './service/persona.service';
+import { NgbAccordion } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -40,8 +41,12 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     NgbModule,
     NgCircleProgressModule.forRoot({}),
     HttpClientModule, 
+    FormsModule,
+  
   ],
-  providers: [LoginService],
+  providers: [LoginService,
+  PersonaService],
+ 
   bootstrap: [AppComponent]
 })
 export class AppModule { }

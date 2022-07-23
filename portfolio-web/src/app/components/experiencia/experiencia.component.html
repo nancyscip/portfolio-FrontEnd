@@ -1,78 +1,13 @@
 <div class="row">
     <h1>Experiencia Laboral</h1>
+    
     <div class="col-lg-1"></div>
-    <div class="col-lg-10">
-        <div class="accordion" id="accordionExample">
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                  <strong>Representante de atención al cliente.</strong>
-                </button>
-              </h2>
-              <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                    <p><strong>Apex América <img src="../../../assets/apex1.jpg" alt=""> Jornada Parcial /// Noviembre 2011 - Junio 2017 (5 años 8 meses)</strong></p>
-                    <br>
-                    <p>Atención telefónica de reclamos y dudas para clientes de la banda ancha Speedy. Solución en línea. Atención de consultas sobre OnVideo. Soporte técnico de banda ancha. Soporte para nuevos clientes. Manejo de sistemas. Manejo de información personal.</p>
-                </div>
-              </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingTwo">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    <strong>Telemarketer.</strong>
-                  </button>
-                </h2>
-                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                  <div class="accordion-body">
-                    <p><strong>Diario Cruz del Sur <img src="../../../assets/diario1.jpg" alt=""> Jornada Parcial /// Agosto 2011 - Septiembre 2011 (2 meses)</strong></p>
-                    <br>
-                <p>Venta de avisos clasificados, publicidad y suscripciones para un semanario.</p>
-                  </div>
-                </div>
-              </div>  
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingThree">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    <strong>Armado y Reparación de PC.</strong>
-                  </button>
-                </h2>
-                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                  <div class="accordion-body">
-                    <p><strong>Cuenta Propia <img src="../../../assets/compu1.jpg" alt=""> Full Time /// Noviembre 2001 - Agosto 2011 (9 años 10 meses)</strong></p>
-                    <br>
-                    <p>Diagnóstico de fallas. Reemplazo de piezas dañadas. Instalación y configuración de hardware. Instalación y configuración de sistemas operativos. Instalación y configuración de programas. Instalación y configuración de antivirus. Particionado de discos rígidos. Armado de una computadora personal.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingFour">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                    <strong>Recepcionista y Telefonista.</strong>
-                  </button>
-                </h2>
-                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
-                  <div class="accordion-body">
-                    <p><strong>Radio Taxi Estrella <img src="../../../assets/taxi1.jpg" alt=""> Full Time /// Febrero 2003 - Agosto 2003 (7 meses)</strong></p>
-                      <br>
-                      <p>Atención de clientes en forma personal y telefónica. Registro de las asientos en el libro diario de la empresa.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingFive">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                    <strong>Recepcionista y Telefonista.</strong>
-                  </button>
-                </h2>
-                <div id="collapseFive" class="accordion-collapse collapse hide" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
-                  <div class="accordion-body">
-                    <p><strong>Remisses Santa Rita <img src="../../../assets/remisse1.jpg" alt=""> Full Time /// Octubre 2002 - Enero 2003 (4 meses)</strong></p>
-                      <br>
-                      <p>Atención de clientes en forma personal y telefónica. Registro de las asientos en el libro diario de la empresa.</p>
-                  </div>
-                </div>
+    <div class="col-lg-10"></div>
+              <div *ngFor=" let exp of experiencia">
+                <ng-template #popContent>Hello, <b>{{exp.fecha_inicio}}</b>!</ng-template>
+<ng-template #popTitle>Fancy <b>content!!</b></ng-template>
+<button type="button" class="btn btn-outline-secondary" [ngbPopover]="popContent" [popoverTitle]="popTitle">
+  {{exp.cargo}}
+</button>
               </div>
             </div>  
-    </div>
-  </div>

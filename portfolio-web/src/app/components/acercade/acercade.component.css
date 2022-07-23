@@ -52,3 +52,12 @@ h5{
 #mail, #telefono, #ciudad{
   font-style: italic;
 }
+strong{
+  color:rgb(172, 116, 5);
+}
+.botones_contenido {
+  border: none;
+  background: none;
+  padding: 2px;
+  color:aliceblue;
+}

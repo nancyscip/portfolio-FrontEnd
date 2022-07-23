@@ -1,40 +1,162 @@
 <div class="row">
-            <div class="col-2" *ngFor="let persona of personas">
-                <img src={{persona.img}} alt="fotoperfil" class="img-fluid" id="fotodeperfil">
+            <div class="col-2">
+               <div class="imagen" *ngFor="let person of personas">
+                <img src={{person.img}} alt="fotoperfil" class="img-fluid" id="fotodeperfil">
+                <div id="eliminar-editar-sobre_mi">
+                  <button (click)="onOpenModal(null!,'add')" type="button" class="botones_contenido" title="anadir">
+                      <i class="fa-solid fa-plus"></i>
+                  </button>
+                  <button (click)="onOpenModal(person,'edit')" type="button" class="botones_contenido" title="editar">
+                      <i class="fa-solid fa-pen"></i>
+                  </button>
+                  <button (click)="onOpenModal(person,'delete')"  type="button" class="botones_contenido" title="borrar">
+                      <i class="fa-solid fa-eraser"></i>  
+                  </button>
+                </div>
+              </div>
             </div>
-    <div class="col-3" *ngFor="let persona of personas">
-      <p id="nombre"><font color="#660066">{{persona.nombre}} {{persona.apellido}}</font></p>
-            <p id="titulo"><font color="#0099cc">{{persona.titulo}}</font></p>
+    <div class="col-3">
+      <div *ngFor="let person of personas">
+      <p id="nombre"><font color="#660066">{{person.nombre}} {{person.apellido}}</font></p>
+            <p id="titulo"><font color="#0099cc">{{person.titulo}}</font></p>
+          <div class="edit-parrafo" id="eliminar-editar-sobremi">
+                <button (click)="onOpenModal(null!,'add')" type="button" class="botones_contenido" title="anadir">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+                <button (click)="onOpenModal(person,'edit')" type="button" class="botones_contenido" title="editar">
+                    <i class="fa-solid fa-pen"></i>
+                </button>
+                <button (click)="onOpenModal(person,'delete')"  type="button" class="botones_contenido" title="borrar">
+                    <i class="fa-solid fa-eraser"></i>
+                </button>
+            </div>
+      </div>
             <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                 Contacto
               </button>
         </div>
-        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel1" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">Contacto</h5>
+          <h5 class="modal-title" id="staticBackdropLabel1">Contacto</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body" *ngFor="let persona of personas">
+        <div class="modal-body">
+          <div *ngFor="let person of personas">
           <p id="mail"><font color="#660066">Mail de Contacto:</font></p>
-          <p><strong>{{persona.correo}}</strong></p>
+          <p><strong>{{person.correo}}</strong></p>
           <p id="telefono"><font color="#660066">Teléfono:</font></p>
-          <p><strong>{{persona.telefono}}</strong></p>
+          <p><strong>{{person.telefono}}</strong></p>
           <p id="ciudad"><font color="#660066">Ciudad, Provincia, País:</font></p>
-          <p><strong>{{persona.domicilio}}</strong></p>
+          <p><strong>{{person.domicilio}}</strong></p>
       </div>
+    </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
         </div>
       </div>
     </div>
   </div>
-        <div class="col-6" *ngFor="let persona of personas">
+        <div class="col-6">
             <span>
                 <h1>Acerca de mi</h1>
-                <p class="p-2 bg-secondary text-white">{{persona.sobre_mi}}</p>
+                <div *ngFor="let person of personas">
+                <p class="p-2 bg-secondary text-white">{{person.sobre_mi}}</p>
+              </div>
             </span>
         </div>
       </div>
+ 
 
+      <!----------------Abrir modal de adición de persona---->
+  
+        <div class="modal fade" id="addPersonaModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addPersonaModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addPersonaModalLabel">Agregar Persona</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form #addForm="ngForm" (ngSubmit)="onAddPersona(addForm)">
+          <label for="nombre">Nombre</label><br>
+          <input ngModel type="text" ngModel name="nombre"  class="form-control">
+          <label for="apellido">Apellido</label>
+          <input ngModel type="text" ngModel name="apellido" class="form-control">
+          <label for="titulo">Ocupación</label><br>
+          <input ngModel type="text" ngModel name="titulo"  class="form-control">
+          <label for="domicilio">Ciudad, Provincia, País</label><br>
+          <input ngModel type="text" ngModel name="domicilio"  class="form-control">
+          <label for="telefono">Teléfono</label><br>
+          <input ngModel type="text" ngModel name="telefono"  class="form-control">
+          <label for="correo">Correo Electrónico</label><br>
+          <input ngModel type="text" ngModel name="correo"  class="form-control">
+          <label for="sobre_mi">Sobre Mí</label><br>
+          <input ngModel type="text" ngModel name="sobre_mi"  class="form-control">
+          <label for="img">Imagen</label><br>
+          <input ngModel type="text" ngModel name="img"  class="form-control"><br>
+          <div class="modal-footer">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button [disabled]="addForm.invalid" type="button" class="btn btn-primary">Agregar</button>
+      </div>
+    
+<!----------------Abrir modal de edicion de persona---->
+
+<div class="modal fade" id="editPersonaModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="editPersonaModal1" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="editPersonaModal1">Editar Usuario</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+              <form #editForm="ngForm">
+                  <label for="nombre">Nombre</label><br>
+                  <input ngModel type="text" ngModel="{{editPersona?.nombre}} " name="nombre"  class="form-control">
+                  <label for="apellido">Apellido</label><br>
+                  <input type="text" name="apellido" ngModel="{{editPersona?.apellido}}" class="form-control">
+                  <label for="ocupacion">Ocupación</label><br>
+                  <input ngModel type="text" ngModel="{{editPersona?.titulo}}"  name="ocupacion"  class="form-control">
+                  <label for="ocupacion">Ciudad, Provincia, País</label><br>
+                  <input ngModel type="text" ngModel="{{editPersona?.domicilio}} " name="domicilio"  class="form-control">
+                  <label for="telefono">Teléfono</label><br>
+                  <input ngModel type="text" ngModel="{{editPersona?.telefono}} " name="telefono"  class="form-control">
+                  <label for="email">Correo Electrónico</label><br>
+                  <input ngModel type="text" ngModel="{{editPersona?.correo}} " name="correo"  class="form-control">
+                  <label for="sobremi">Sobre Mí</label><br>
+                  <input ngModel type="text" ngModel="{{editPersona?.sobre_mi}}" name="sobre_mi"  class="form-control">
+                  <label for="urlImagen">Imagen</label><br>
+                  <input ngModel type="text" ngModel="{{editPersona?.img}}" name="img"  class="form-control">
+                  <input type="hidden" name="id" ngModel="{{editPersona?.id}} ">
+                  <div class="modal-footer">
+                      <button id="update-persona-modal" type="button" class="btn" data-dismiss="modal">Cancelar</button>
+                      <button (click)="onUpdatePersona(editForm.value)" type="button" class="btn" data-dismiss="modal">Guardar cambios</button>
+                  </div>
+              </form>
+          </div>
+          </div>
+<!------------------Abrir modal para borrar persona----------->
+<div class="modal fade" id="deletePersonaModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="deletePersonaModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="deletePersonaModalLabel"></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+              <p>Esta acción eliminará {{deletePersona?.nombre}} . ¿Desea continuar?</p>
+          </div>
+          <div class="modal-footer borrar">
+          <button type="button" class="btn" data-dismiss="modal">No</button>
+          <button (click)="onDeletePersona(deletePersona.id)" type="button" class="btn" data-dismiss="modal">Sí</button>
+          </div>
+      </div>
+  </div>
+</div>

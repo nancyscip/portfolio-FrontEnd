@@ -1,1 +1,0 @@
-SELECT * FROM backendnancyscip.persona;
