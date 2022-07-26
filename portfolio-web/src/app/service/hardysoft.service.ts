@@ -1,30 +1,31 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
-import { Skills } from '../interface/hardysoft.interface';
+import { Skill } from '../interface/hardysoft.interface';
+import { environment} from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
-export class SkillsService {
+export class SkillService {
+
   private apiServerUrl = environment.apiBaseUrl;
 
   constructor(private http: HttpClient) { }
 
-  public getSkills(): Observable<Skills[]> {
-    return this.http.get<Skills[]>(`${this.apiServerUrl}/skills/all`);
+  public getSkills(): Observable<Skill[]> {
+    return this.http.get<Skill[]>(`${this.apiServerUrl}/skill/all`);
   }
 
-  public addSkills(skills: Skills): Observable<Skills> {
-    return this.http.post<Skills>(`${this.apiServerUrl}/skills/add`, skills);
+  public updateSkill(skill: Skill): Observable<Skill> {
+    return this.http.put<Skill>(`${this.apiServerUrl}/skill/update`, skill);
   }
 
-  public updateSkills(skill: Skills): Observable<Skills> {
-    return this.http.put<Skills>(`${this.apiServerUrl}/skills/update`, skill)
+  public addSkill(skill: Skill): Observable<Skill> {
+    return this.http.post<Skill>(`${this.apiServerUrl}/skill/add`, skill);
   }
 
-  public deleteSkills(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiServerUrl}/skills/delete/${id}`);
+  public deleteSkill(skillId: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiServerUrl}/skill/delete/${skillId}`);
   }
 }

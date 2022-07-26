@@ -18,7 +18,7 @@ import { LoginService} from './login.service';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { PersonaService } from './service/persona.service';
-import { NgbAccordion } from '@ng-bootstrap/ng-bootstrap';
+
 
 
 @NgModule({
