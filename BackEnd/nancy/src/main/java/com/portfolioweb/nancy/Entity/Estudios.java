@@ -22,17 +22,19 @@ public class Estudios implements Serializable {
     private String fecha_fin;
     private String titulo;
     private String img;
+    private String descripcion;
 
     public Estudios(){
     }
 
-    public Estudios(Long id, String lugar, String fecha_inicio, String fecha_fin, String titulo, String img){
+    public Estudios(Long id, String lugar, String fecha_inicio, String fecha_fin, String titulo, String img, String descripcion){
         this.id = id;
         this.lugar = lugar;
         this.fecha_inicio = fecha_inicio;
         this.fecha_fin = fecha_fin;
         this.titulo = titulo;
         this.img = img;
+        this.descripcion = descripcion;
     }
 
     @Override
@@ -44,6 +46,7 @@ public class Estudios implements Serializable {
                 ", fecha_inicio=" + fecha_inicio + '\'' +
                 ", fecha_fin=" + fecha_fin + '\'' +
                 ", img=" + img + '\'' +
+                ", descripcion=" + descripcion + '\'' +
                 '}';
     }
 }

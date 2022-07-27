@@ -2,24 +2,24 @@
       <h1>Experiencia Laboral</h1>
       <div class="col-lg-1"></div>
       <div class="col-lg-10">
-        <div *ngFor="let exp of experiencias">
+        <div *ngFor="let experiencia of experiencias">
           <div class="accordion" id="accordionExample">
             <div class="accordion-item">
                 <h2 class="accordion-header" id="headingOne">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                    <strong>{{exp.cargo}}</strong>
+                    <strong>{{experiencia.cargo}}</strong>
                   </button>
                 </h2>
                 <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                   <div class="accordion-body">
-                      <p><strong>{{exp.nombre_empresa}}> /// {{exp.fecha_inicio}} - {{exp.fecha_fin}}</strong></p>
+                      <p><strong>{{experiencia.nombre_empresa}}> /// {{experiencia.fecha_inicio}} - {{experiencia.fecha_fin}}</strong></p>
                       <br>
-                      <p>{{exp.descripcion}}</p>
+                      <p>{{experiencia.descripcion}}</p>
                       <div id="eliminar-editar-trabajos" *ngIf="isAdmin">                    
-                <button (click)="onOpenModal(exp,'edit')" type="button" class="botones_contenido" title="boton-editar">
+                <button (click)="onOpenModal(experiencia,'edit')" type="button" class="botones_contenido" title="boton-editar">
                     <i class="fa-solid fa-pen"></i>
                 </button>
-                <button (click)="onOpenModal(exp,'delete')" type="button" class="botones_contenido" title="boton-borrar">
+                <button (click)="onOpenModal(experiencia,'delete')" type="button" class="botones_contenido" title="boton-borrar">
                     <i class="fa-solid fa-eraser"></i>
                 </button>     
             </div> 
@@ -75,7 +75,7 @@
             <div class="modal-body">
                 <form #editForm="ngForm">
                     <label for="cargo">Puesto</label><br>
-                    <input ngModel="{{editExperiencia?.cargo " type="text" name="cargo"  class="form-control"><br>
+                    <input ngModel="{{editExperiencia?.cargo}} " type="text" name="cargo"  class="form-control"><br>
                     <label for="nombre_empresa">Empresa</label><br>
                     <input ngModel="{{editExperiencia?.nombre_empresa}}" type="text" name="nombre_empresa"  class="form-control">
                     <label for="fecha_inicio">Fecha de Inicio</label><br>
