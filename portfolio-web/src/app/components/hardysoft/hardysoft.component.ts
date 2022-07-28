@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { SkillService } from 'src/app/service/hardysoft.service';
 import { TokenService } from 'src/app/service/token.service';
 import { Skill } from '../../interface/hardysoft.interface';
+import { CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-hardysoft',
@@ -12,7 +13,7 @@ import { Skill } from '../../interface/hardysoft.interface';
 })
 export class HardysoftComponent implements OnInit {
 
-  public skills: Skill[] = [];
+  public skills!: Skill[];
   public editSkill!: Skill;
   public deleteSkill!: Skill;
   roles: string[] = [];
@@ -22,6 +23,8 @@ export class HardysoftComponent implements OnInit {
     private skillService: SkillService,
     private tokenService: TokenService
   ) { }
+
+  isloged = () => this.tokenService.loggedIn();
 
   ngOnInit(): void {
     this.getSkills();
@@ -36,13 +39,13 @@ export class HardysoftComponent implements OnInit {
 
   public getSkills(): void {
     this.skillService.getSkills().subscribe({
-      next: (response: Skill[]) => {
+      next: (response: Skill[]) =>{
         this.skills = response;
       },
-      error: (error: HttpErrorResponse) => {
+      error: (error: HttpErrorResponse) =>{
         alert(error.message);
       }
-    });
+  });
   }
 
   public onAddSkill(addForm: NgForm): void {
@@ -104,4 +107,6 @@ export class HardysoftComponent implements OnInit {
     container?.appendChild(button);
     button.click();
   }
+
+
 }

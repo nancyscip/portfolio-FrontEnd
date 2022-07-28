@@ -28,8 +28,8 @@ public class ISkillsService {
         return iskillsRepository.findAll();
     }
 
-    public Skills updateSkills(Skills skill) {
-        return iskillsRepository.save(skill);
+    public Skills updateSkills(Skills skills) {
+        return iskillsRepository.save(skills);
     }
 
     public void deleteSkill(Long id) {

@@ -1,6 +1,9 @@
 div{
     background-color: #010005;
 }
+*{
+    margin-right: 0px;
+}
 br{
     background-color: #010005;
 }

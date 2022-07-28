@@ -1,12 +1,13 @@
 <div class="row">
     <h1>Hard & Soft Skills</h1>
-    <div *ngFor="let skill of skills"></div>
+      
+   <div *ngFor="let ski of skills">
     <div class="text-center col-sm-4 col-md-4 col-lg-4">
-   
+      <h2>{{ski.skill}}</h2>
         <circle-progress
-          [units]="'{{skill.porcentaje}}%'"
+          [percent]="ski.porcentaje"
           [radius]="100"
- [imageSrc]="'../assets/HTML1.png'"
+ [imageSrc]="ski.img"
           [showImage]="true"
           [imageHeight]="70"
           [imageWidth]="70"
@@ -19,95 +20,8 @@
           [animation]="true"
           [animationDuration]="500"
         ></circle-progress>
-        </div>
-        <div class="text-center col-sm-4 col-md-4 col-lg-4">
-            <circle-progress
-              [units]="'{{skill.porcentaje}}%'"
-              [radius]="100"
-              [showUnits]="false"
-         [imageSrc]="'../assets/CSS.png'"
-         [showImage]="true"
-         [imageHeight]="70"
-         [imageWidth]="70"
-              [showSubtitle]="false"
-              [outerStrokeWidth]="10"
-              [innerStrokeWidth]="3"
-              [outerStrokeColor]="'#300C84'"
-              [innerStrokeColor]="'#006666'"
-              [animation]="true"
-              [animationDuration]="500"
-            ></circle-progress>
-            </div>
-            <div class="text-center col-sm-4 col-md-4 col-lg-4">
-                <circle-progress
-                  [units]="'{{skill.porcentaje}}%'"
-                  [radius]="100"
-                 [imageSrc]="'../assets/angular-logo.png'"
-                 [showImage]="true"
-                  [imageHeight]="70"
-                  [imageWidth]="70"
-                  [showUnits]="false"
-                  [showSubtitle]="false"
-                  [outerStrokeWidth]="10"
-                  [innerStrokeWidth]="3"
-                  [outerStrokeColor]="'#300C84'"
-                  [innerStrokeColor]="'#006666'"
-                  [animation]="true"
-                  [animationDuration]="500"
-                ></circle-progress>
-                </div>
-                <div class="text-center col-sm-4 col-md-4 col-lg-4">
-                    <circle-progress
-                      [units]="'{{skill.porcentaje}}'"
-                      [radius]="100"
-                      [showUnits]="false"
-                      [imageSrc]="'../assets/work1.png'"
-         [showImage]="true"
-         [imageHeight]="70"
-         [imageWidth]="70"
-                      [showSubtitle]="false"
-                      [outerStrokeWidth]="10"
-                      [innerStrokeWidth]="3"
-                      [outerStrokeColor]="'#300C84'"
-                      [innerStrokeColor]="'#006666'"
-                      [animation]="true"
-                      [animationDuration]="500"
-                    ></circle-progress>
-                    </div>
-                    <div class="text-center col-sm-4 col-md-4 col-lg-4">
-                        <circle-progress
-                        [units]="'{{skill.porcentaje}}'"
-                          [radius]="100"
-                          [showUnits]="false"
-                          [imageSrc]="'../assets/adapta.png'"
-                          [showImage]="true"
-                          [imageHeight]="70"
-                          [imageWidth]="70"
-                          [showSubtitle]="false"
-                          [outerStrokeWidth]="10"
-                          [innerStrokeWidth]="3"
-                          [outerStrokeColor]="'#300C84'"
-                          [innerStrokeColor]="'#006666'"
-                          [animation]="true"
-                          [animationDuration]="500"
-                        ></circle-progress>
-                        </div>
-                        <div class="text-center col-sm-4 col-md-4 col-lg-4">
-                            <circle-progress
-                            [units]="'{{skill.porcentaje}}'"
-                              [radius]="100"
-                              [showUnits]="false"
-                              [imageSrc]="'../assets/creativ.png'"
-                              [showImage]="true"
-                              [imageHeight]="70"
-                              [imageWidth]="70"
-                              [showSubtitle]="false"
-                              [outerStrokeWidth]="10"
-                              [innerStrokeWidth]="3"
-                              [outerStrokeColor]="'#300C84'"
-                              [innerStrokeColor]="'#006666'"
-                              [animation]="true"
-                              [animationDuration]="500"
-                            ></circle-progress>
+        
                             </div>
                           </div>
+                        </div> 
+             

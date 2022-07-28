@@ -1,6 +1,9 @@
 div{
     background-color: #3a03bb; 
     }
+    *{
+        margin-right: 0px;
+    }
     app-redes{
         float: right;
         margin-top: 25px;

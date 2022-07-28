@@ -31,8 +31,8 @@ public class SkillsController {
 
     /* @PreAuthorize("hasRole('ADMIN')")*/
     @PostMapping("/add")
-    public ResponseEntity<Skills> addSkill(@RequestBody Skills skill) {
-        Skills newSkill = iskillsService.addSkill(skill);
+    public ResponseEntity<Skills> addSkill(@RequestBody Skills skills) {
+        Skills newSkill = iskillsService.addSkill(skills);
         return new ResponseEntity<>(newSkill, HttpStatus.CREATED);
     }
 
