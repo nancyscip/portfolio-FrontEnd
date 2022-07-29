@@ -5,4 +5,5 @@ export interface Estudios {
     fecha_fin: string;
     titulo: string;
     img: string;
+    descripcion: string;
 }

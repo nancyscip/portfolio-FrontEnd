@@ -1,44 +1,122 @@
 <div class="row">
-    <h1>Educación</h1>
+    <h1>Educación<button type="button" class="botones_contenido" (click)="onOpenModal(null!,'add')" *ngIf="isAdmin" title="anadir">
+      <i class="fa-solid fa-plus"></i>
+  </button></h1>
     <div class="col-lg-1"></div>
     <div class="col-lg-10">
         <div class="accordion" id="accordionExample">
-            <div class="accordion-item">
+            <div class="accordion-item" *ngFor="let edu of estudios">
               <h2 class="accordion-header" id="headingSix">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                  <strong>Full Stack Developer</strong>
+                  <strong>{{edu.titulo}}</strong>
                 </button>
               </h2>
               <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  <p><strong>Argentina Programa #YoProgramo. /// Febrero 2022 - Agosto 2022</strong><br>Habilidades digitales, Arquitectura Web, Git/Github, Operadores de búsqueda, SCRUM, Gestión del tiempo, APIs, HTML, CSS, Javascript, Typescript, Bootstrap, Angular, SQL, SPA, MPA, POO, Java, JSP, Spring Boot, DevOps, Seguridad Web, Testing, Deploy.</p>
+                  <p><strong>{{edu.lugar}}<img src="{{edu.img}}" alt="">. /// {{edu.fecha_inicio}} - {{edu.fecha_fin}}</strong><br>{{edu.descripcion}}</p>
+                  <span id="eliminar-editar-estudios" *ngIf="isAdmin">                        
+                    <button type="button" class="botones_contenido" (click)="onOpenModal(edu,'edit')" title="editor">
+                        <i class="fa-solid fa-pen"></i>
+                    </button>
+                    <button (click)="onOpenModal(edu,'delete')" type="button" class="botones_contenido" title="borrar">
+                        <i class="fa-solid fa-eraser"></i>   
+                    </button>
+                </span>
                 </div>
               </div>
             </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingSeven">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-                  <strong>Armado y reparación de PC</strong>
+</div><!-- Modal para agregar Experiencia -->
+<div class="modal fade" id="addEstudiosModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="addExperienciaModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Agregar Habilidades</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
                 </button>
-              </h2>
-              <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                  <p><strong>Instituto Santa Fe /// Mayo 2001 - Octubre 2001</strong><br>Diagnóstico de fallas, Recambio de partes dañadas, Instalación y configuración de Hardware, Software y Sistemas Operativos.</p>
-                </div>
-              </div>
             </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingEight">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
-                  <strong>Perito Mercantil</strong>
-                </button>
-              </h2>
-              <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                  <p><strong>E.E.M. Nº 422 /// >Marzo 1996 - Diciembre 2000</strong><br>Título secundario orientado a análisis económico dentro de una empresa.</p>
-                </div>
-              </div>
+            <div class="modal-body">
+                <form #addForm="ngForm" (ngSubmit)="onAddEstudios(addForm)">
+                    <label for="titulo">Título</label><br>
+                    <input ngModel type="text" name="tituloEstudios"  class="form-control">
+                    <label for="lugar">Lugar de estudio </label><br>
+                    <input ngModel type="text" name="casaDeEstudios"  class="form-control">
+                    <label for="fecha_inicio">Fecha de Inicio</label><br>
+                    <input ngModel type="text" name="fechaInicio"  class="form-control">
+                    <label for="fecha_fin">Fecha de Finalización</label><br>
+                    <input ngModel type="text" name="fechaTermino"  class="form-control">
+                    <label for="img">Logo Lugar de estudios</label><br>
+                    <input ngModel type="text" name="urlLogo"  class="form-control">
+                    <label for="descripcion">Descripción</label><br>
+                    <input ngModel type="text" name="descripcion"  class="form-control">
+                    <div class="modal-footer">
+                        <button  type="button" id="add-estudios-modal" class="btn" data-dismiss="modal">Cancelar</button>
+                        <button [disabled]="addForm.invalid" type="submit" class="btn">Agregar</button>
+                    </div>
+                </form>
             </div>
-          </div>
+            
+        </div>
+    </div>
 </div>
+<!-- Modal para actualizar Experiencia -->
+<div class="modal fade" id="updateEstudiosModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="updateEstudiosModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Editar Estudios y Capacitaciones</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form #editForm="ngForm">
+                    <label for="puesto">Título</label><br>
+                    <input ngModel="{{editEstudios?.titulo}} " type="text" name="tituloEstudios"  class="form-control">
+                    <label for="nombreEmpresa">Lugar de estudio</label><br>
+                    <input ngModel="{{editEstudios?.lugar}}" type="text" name="casaDeEstudios"  class="form-control">
+                    <label for="fechaInicio">Fecha de Inicio</label><br>
+                    <input ngModel="{{editEstudios?.fecha_inicio}}" type="text" name="fechaInicio"  class="form-control">
+                    <label for="fechaFinalizacion">Fecha de Finalización</label><br>
+                    <input ngModel="{{editEstudios?.fecha_fin}}" type="text" name="fechaTermino"  class="form-control">
+                    <label for="img">Logo Lugar de estudios</label><br>
+                    <input ngModel="{{editEstudios?.img}}" type="text" name="urlLogo"  class="form-control">
+                    <label for="descripcion">Descripción</label><br>
+                    <input ngModel="{{editEstudios?.descripcion}}" type="text" name="descripcion"  class="form-control">
+                    <input type="hidden" name="id" ngModel="{{editEstudios?.id}} "><br>
+                    <div class="modal-footer">
+                        <button id="update-estudios-modal" type="button" class="btn" data-dismiss="modal">Cancelar</button>
+                        <button (click)="onUpdateEstudio(editForm.value)" type="button" class="btn" data-dismiss="modal">Guardar cambios</button>
+                    </div>
+                </form>
+            </div>
+            
+            
+            
+            
+        </div>
+    </div>
+</div>
+
+<!-- Modal para borrar Experiencia -->
+<div class="modal fade" id="deleteEstudiosModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="deleteEstudiosModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Esta acción eliminará  "{{deleteEstudios?.titulo}}". ¿Desea continuar?</p>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn" data-dismiss="modal">No</button>
+            <button (click)="onDeleteEstudios(deleteEstudios.id)" type="button" class="btn" data-dismiss="modal">Sí</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 </div>

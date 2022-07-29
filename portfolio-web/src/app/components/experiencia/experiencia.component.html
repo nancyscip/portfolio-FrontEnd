@@ -1,5 +1,7 @@
  <div class="row">
-      <h1>Experiencia Laboral</h1>
+      <h1>Experiencia Laboral<button *ngIf="isAdmin" (click)="onOpenModal(null!,'add')" type="button" class="botones_contenido" title="anadir">
+        <i class="fa-solid fa-plus"></i>
+    </button></h1>
       <div class="col-lg-1"></div>
       <div class="col-lg-10">
         <div>

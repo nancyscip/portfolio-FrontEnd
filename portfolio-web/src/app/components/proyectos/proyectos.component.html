@@ -1,49 +1,121 @@
 <div class="row">
-    <h1>Proyectos</h1>
+    <h1>Proyectos<button (click)="onOpenModal(null!,'add')" type="button" class="botones_contenido" *ngIf="isAdmin" title="anadir">
+        <i class="fa-solid fa-plus"></i>
+        </button></h1>
     <br>
-  </div>
+
+            </div>
+ 
     <div class="row">
         <div class="col-lg-2"></div>
     <div class="card w-75">
-        <img src="../../../assets/frut.png" class="card-img-top" alt="frutasyverduras">
+      <div *ngFor="let proy of proyectos">
+        <img src="{{proy.img}}" class="card-img-top" alt="">
         <div class="card-body">
-          <h5 class="card-title">Mi Primer Proyecto</h5>
-          <p class="card-text">Proyecto para clase sincrónica de #ArgentinaPrograma. Uso de #HTML #CSS. Primer proyecto (durante el primer mes de cursado). Práctica listas y estilos.</p>
-          <a href="https://github.com/nancyscip/nancyscip.github.io" target="_blank" rel="noopener noreferrer" class="card-link">Link al repositorio</a>
+          <h5 class="card-title">{{proy.nombre}}</h5>
+          <p class="card-text">{{proy.descripcion}}</p>
+          <a href="{{proy.github}}" target="_blank" rel="noopener noreferrer" class="card-link">Link al repositorio</a>
           <br>
           <br>
-          <a href="https://nancyscip.github.io/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Ir al Proyecto</a>
+          <a href="{{proy.proyecto}}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Ir al Proyecto</a>
+          <p id="creacion">{{proy.fecha}}</p>
+        
+ 
+  <div class="textoarriba" id="eliminar-editar-proyectos" *ngIf="isAdmin">
+                                <button (click)="onOpenModal(proy,'edit')" type="button" class="botones_contenido" title="editor">
+                                <i class="fa-solid fa-pen"></i>
+                                </button>
+                                <button (click)="onOpenModal(proy,'delete')" type="button" class="botones_contenido" title="ELIMINAR">
+                                <i class="fa-solid fa-eraser"></i>
+                                </button>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+<!-- Modal para agregar Skill -->
+<div class="modal fade" id="addProyectoModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="addProyectoModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Agregar Proyecto</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form #addForm="ngForm" (ngSubmit)="onAddProyecto(addForm)">
+                    <label for="nombreProyecto">Nombre del Proyecto</label><br>
+                    <input ngModel type="text" name="nombreProyecto"  class="form-control">
+                    <label for="descripcion">Descripción</label><br>
+                    <input ngModel type="text" name="descripcion"  class="form-control">
+                    <label for="urlImagen">Imagen del Proyecto</label><br>
+                    <input ngModel type="text" name="urlImagen"  class="form-control">
+                    <label for="urlProyecto">Url del Proyecto</label><br>
+                    <input ngModel type="text" name="urlProyecto"  class="form-control">
+                    <div class="modal-footer">
+                        <button  type="button" id="add-proyecto-modal" class="btn" data-dismiss="modal">Cancelar</button>
+                        <button [disabled]="addForm.invalid" type="submit" class="btn">Agregar</button>
+                    </div>
+                </form>
+            </div>
+            
         </div>
-      </div>
     </div>
-      <div class="row">
-      <div class="col-lg-2"></div>
-      <div class="card w-75">
-        <img src="../../../assets/calc.png" class="card-img-top" alt="calculadora-simple">
-        <div class="card-body">
-          <h5 class="card-title">Calculadora Simple</h5>
-          <p class="card-text">Práctica. Calculadora simple y sencilla pero funcional. Uso de #HTML #CSS.</p>
-          <a href="https://github.com/nancyscip/calculator" target="_blank" rel="noopener noreferrer" class="card-link">Link al repositorio</a>
-          <br>
-          <br>
-          <a href="https://1234calculadora.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Ir al Proyecto</a>
+</div>
+<!-- Modal para actualizar Skill -->
+<div class="modal fade" id="updateProyectoModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="updateProyectoModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Editar Proyecto</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form #editForm="ngForm">
+                    <label for="nombreProyecto">Nombre del Proyecto</label><br>
+                    <input ngModel type="text" ngModel="{{editProyectos?.nombre}} " name="nombre"  class="form-control">
+                    <label for="descripcion">Descripción</label><br>
+                    <input  type="text" name="descripcion" ngModel="{{editProyectos?.descripcion}}" class="form-control">
+                    <input type="hidden" name="id" ngModel="{{editProyectos?.id}} ">
+                    <div class="modal-footer">
+                        <button id="update-proyecto-modal" type="button" class="btn" data-dismiss="modal">Cancelar</button>
+                        <button (click)="onUpdateProyecto(editForm.value)" type="button" class="btn" data-dismiss="modal">Guardar cambios</button>
+                    </div>
+                </form>
+            </div>
+            
+            
+            
+            
         </div>
-      </div>
     </div>
-      <div class="row">
-      <div class="col-lg-2"></div>
-      <div class="card w-75">
-        <img src="../../../assets/calc1.png" class="card-img-top" alt="calculadora-decimal">
-        <div class="card-body">
-          <h5 class="card-title">Calculadora Decimal</h5>
-          <p class="card-text">Calculadora sencilla con función decimal #HTML #CSS #JS.</p>
-          <a href="https://github.com/nancyscip/Calculadora-decimal" target="_blank" rel="noopener noreferrer" class="card-link">Link al repositorio</a>
-          <br>
-          <br>
-          <a href="https://calculadoradecimal.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Ir al Proyecto</a>
+</div>
+
+<!-- Modal para borrar Skill -->
+<div class="modal fade" id="deleteProyectoModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="deleteProyectoModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Esta acción eliminará "{{deleteProyectos?.nombre}}". ¿Desea continuar?</p>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn" data-dismiss="modal">No</button>
+            <button (click)="onDeleteProyecto(deleteProyectos.id)" type="button" class="btn" data-dismiss="modal">Sí</button>
+            </div>
         </div>
-      </div>
-      </div>
+    </div>
+</div>
+
       <div class="row">
       <footer><p>Nancy Erica Scipioni | © Argentina Programa 2022</p>
         <p>Rosario - Santa Fe - Argentina</p>

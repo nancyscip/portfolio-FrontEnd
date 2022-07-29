@@ -1,5 +1,3 @@
-import { Persona } from "../interface/persona.interface";
-
 export interface Proyecto {
     id: number;
     nombre: string;
@@ -8,5 +6,5 @@ export interface Proyecto {
     img: string;
     github: string;
     proyecto: string;
-    persona: Persona;
+
 }
