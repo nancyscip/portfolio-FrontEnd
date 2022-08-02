@@ -3,15 +3,13 @@ package com.portfolioweb.nancy.Entity;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 @Getter
 @Setter
+@Table(name = "proyectos")
 public class Proyectos implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,6 +20,7 @@ public class Proyectos implements Serializable {
     private String img;
     private String github;
     private String proyecto;
+
 
     public Proyectos(){
     }
@@ -34,6 +33,62 @@ public class Proyectos implements Serializable {
     this.img = img;
     this.github = github;
     this.proyecto = proyecto;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
+    public String getGithub() {
+        return github;
+    }
+
+    public void setGithub(String github) {
+        this.github = github;
+    }
+
+    public String getProyecto() {
+        return proyecto;
+    }
+
+    public void setProyecto(String proyecto) {
+        this.proyecto = proyecto;
     }
 
     @Override

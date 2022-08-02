@@ -9,6 +9,7 @@ import java.io.Serializable;
 @Getter
 @Setter
 @Entity
+@Table(name = "experiencia")
 public class Experiencia implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO )
@@ -21,7 +22,7 @@ public class Experiencia implements Serializable {
     private String fecha_fin;
     private Boolean es_trabajo_actual;
     private String descripcion;
-    
+
     public Experiencia(){}
 
     public Experiencia(Long id, String cargo, String nombre_empresa, String fecha_inicio, String fecha_fin, Boolean es_trabajo_actual, String descripcion){
@@ -31,6 +32,62 @@ public class Experiencia implements Serializable {
         this.fecha_inicio = fecha_inicio;
         this.fecha_fin = fecha_fin;
         this.es_trabajo_actual = es_trabajo_actual;
+        this.descripcion = descripcion;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
+    }
+
+    public String getNombre_empresa() {
+        return nombre_empresa;
+    }
+
+    public void setNombre_empresa(String nombre_empresa) {
+        this.nombre_empresa = nombre_empresa;
+    }
+
+    public String getFecha_inicio() {
+        return fecha_inicio;
+    }
+
+    public void setFecha_inicio(String fecha_inicio) {
+        this.fecha_inicio = fecha_inicio;
+    }
+
+    public String getFecha_fin() {
+        return fecha_fin;
+    }
+
+    public void setFecha_fin(String fecha_fin) {
+        this.fecha_fin = fecha_fin;
+    }
+
+    public Boolean getEs_trabajo_actual() {
+        return es_trabajo_actual;
+    }
+
+    public void setEs_trabajo_actual(Boolean es_trabajo_actual) {
+        this.es_trabajo_actual = es_trabajo_actual;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
 

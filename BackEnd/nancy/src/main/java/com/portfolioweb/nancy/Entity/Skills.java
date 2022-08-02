@@ -3,15 +3,13 @@ package com.portfolioweb.nancy.Entity;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 
 @Entity
 @Getter
 @Setter
+@Table(name = "skills")
 public class Skills {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -30,16 +28,46 @@ public class Skills {
         this.img = img;
     }
 
-    public String getSkill(){ return skill; }
+    public Long getId() {
+        return id;
+    }
 
-    public void setSkill (String skill) {this.skill = skill; }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    public Integer getPorcentaje() { return (Integer) porcentaje; }
+    public String getSkill() {
+        return skill;
+    }
 
-    public void setPorcentaje (Integer porcentaje) {this.porcentaje = porcentaje;}
+    public void setSkill(String skill) {
+        this.skill = skill;
+    }
 
-    public String getImg() { return img; }
+    public Integer getPorcentaje() {
+        return porcentaje;
+    }
 
-    public void setImg (String img) {this.img = img;}
+    public void setPorcentaje(Integer porcentaje) {
+        this.porcentaje = porcentaje;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
+    @Override
+    public String toString() {
+        return "Skills{" +
+                "id=" + id +
+                ", skill='" + skill + '\'' +
+                ", porcentaje=" + porcentaje +
+                ", img='" + img + '\'' +
+                '}';
+    }
 }
 

@@ -3,15 +3,13 @@ package com.portfolioweb.nancy.Entity;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 @Getter
 @Setter
+@Table(name = "estudios")
 public class Estudios implements Serializable {
 
     @Id
@@ -34,6 +32,62 @@ public class Estudios implements Serializable {
         this.fecha_fin = fecha_fin;
         this.titulo = titulo;
         this.img = img;
+        this.descripcion = descripcion;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getLugar() {
+        return lugar;
+    }
+
+    public void setLugar(String lugar) {
+        this.lugar = lugar;
+    }
+
+    public String getFecha_inicio() {
+        return fecha_inicio;
+    }
+
+    public void setFecha_inicio(String fecha_inicio) {
+        this.fecha_inicio = fecha_inicio;
+    }
+
+    public String getFecha_fin() {
+        return fecha_fin;
+    }
+
+    public void setFecha_fin(String fecha_fin) {
+        this.fecha_fin = fecha_fin;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
 
