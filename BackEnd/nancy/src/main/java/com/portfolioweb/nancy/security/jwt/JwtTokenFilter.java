@@ -49,6 +49,4 @@ public class JwtTokenFilter extends OncePerRequestFilter {
             return header.replace("Bearer ", "");
         return null;
     }
-
-
 }
