@@ -14,10 +14,11 @@ import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './components/login/login.component';
-import { LoginService} from './login.service';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { PersonaService } from './service/persona.service';
+import { EastereggComponent } from './components/easteregg/easteregg.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 
@@ -33,6 +34,8 @@ import { PersonaService } from './service/persona.service';
     LogoApComponent,
     ProyectosComponent,
     LoginComponent,
+    EastereggComponent,
+    HomeComponent,
   ],
   
   imports: [
@@ -44,7 +47,7 @@ import { PersonaService } from './service/persona.service';
     FormsModule,
   
   ],
-  providers: [LoginService,
+  providers: [
   PersonaService],
  
   bootstrap: [AppComponent]
