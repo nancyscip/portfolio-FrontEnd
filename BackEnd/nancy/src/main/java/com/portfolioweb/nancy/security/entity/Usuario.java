@@ -1,7 +1,9 @@
 package com.portfolioweb.nancy.security.entity;
 
-import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+
+import javax.persistence.*;
+
 import java.util.HashSet;
 import java.util.Set;
 

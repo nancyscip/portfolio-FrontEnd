@@ -2,7 +2,7 @@
             <div class="col-2">
                <div class="imagen" *ngFor="let person of personas">
                 <img src={{person.img}} alt="fotoperfil" class="img-fluid" id="fotodeperfil">
-                <div id="eliminar-editar-sobre_mi">
+                <div id="eliminar-editar-sobre_mi" *ngIf="isAdmin">
                   <button (click)="onOpenModal(null!,'add')" type="button" class="botones_contenido" title="anadir">
                       <i class="fa-solid fa-plus"></i>
                   </button>
@@ -19,7 +19,7 @@
       <div *ngFor="let person of personas">
       <p id="nombre"><font color="#660066">{{person.nombre}} {{person.apellido}}</font></p>
             <p id="titulo"><font color="#0099cc">{{person.titulo}}</font></p>
-          <div class="edit-parrafo" id="eliminar-editar-sobremi">
+          <div class="edit-parrafo" id="eliminar-editar-sobremi" *ngIf="isAdmin">
                 <button (click)="onOpenModal(null!,'add')" type="button" class="botones_contenido" title="anadir">
                     <i class="fa-solid fa-plus"></i>
                 </button>
@@ -63,6 +63,17 @@
                 <h1>Acerca de mi</h1>
                 <div *ngFor="let person of personas">
                 <p class="p-2 bg-secondary text-white">{{person.sobre_mi}}</p>
+                <div id="eliminar-editar-sobre_mi" *ngIf="isAdmin">
+                  <button (click)="onOpenModal(null!,'add')" type="button" class="botones_contenido" title="anadir">
+                      <i class="fa-solid fa-plus"></i>
+                  </button>
+                  <button (click)="onOpenModal(person,'edit')" type="button" class="botones_contenido" title="editar">
+                      <i class="fa-solid fa-pen"></i>
+                  </button>
+                  <button (click)="onOpenModal(person,'delete')"  type="button" class="botones_contenido" title="borrar">
+                      <i class="fa-solid fa-eraser"></i>  
+                  </button>
+                </div>
               </div>
             </span>
         </div>

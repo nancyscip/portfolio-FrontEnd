@@ -6,6 +6,7 @@ import com.portfolioweb.nancy.security.jwt.JwtTokenFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -59,6 +60,11 @@ public class MainSecurity extends WebSecurityConfigurerAdapter {
         http.cors().and().csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/auth/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/persona/all").permitAll()
+                .antMatchers(HttpMethod.GET, "/experiencia/all").permitAll()
+                .antMatchers(HttpMethod.GET, "/estudios/all").permitAll()
+                .antMatchers(HttpMethod.GET, "/skills/all").permitAll()
+                .antMatchers(HttpMethod.GET, "/proyectos/all").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling().authenticationEntryPoint(jwtEntryPoint)

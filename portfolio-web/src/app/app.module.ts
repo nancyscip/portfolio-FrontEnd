@@ -17,8 +17,9 @@ import { LoginComponent } from './components/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { PersonaService } from './service/persona.service';
-import { EastereggComponent } from './components/easteregg/easteregg.component';
 import { HomeComponent } from './components/home/home.component';
+import { EastereggComponent } from './components/easter-egg/easter-egg.component';
+
 
 
 
@@ -34,8 +35,8 @@ import { HomeComponent } from './components/home/home.component';
     LogoApComponent,
     ProyectosComponent,
     LoginComponent,
-    EastereggComponent,
     HomeComponent,
+    EastereggComponent,
   ],
   
   imports: [
@@ -45,6 +46,7 @@ import { HomeComponent } from './components/home/home.component';
     NgCircleProgressModule.forRoot({}),
     HttpClientModule, 
     FormsModule,
+ 
   
   ],
   providers: [

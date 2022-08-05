@@ -9,9 +9,6 @@ const AUTHORITIES_KEY = "AuthAuthorities";
   providedIn: 'root'
 })
 export class TokenService {
-  loggedIn() {
-    throw new Error('Method not implemented.');
-  }
 
   roles: Array<string> = [];
 

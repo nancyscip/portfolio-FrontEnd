@@ -1,9 +1,10 @@
 package com.portfolioweb.nancy.security.entity;
 
 import com.portfolioweb.nancy.security.enums.RolNombre;
+import javax.validation.constraints.NotNull;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+
 
 @Entity
 public class Rol {

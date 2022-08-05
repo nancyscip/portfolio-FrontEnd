@@ -1,5 +1,6 @@
 package com.portfolioweb.nancy.security.dto;
 
+
 import javax.validation.constraints.NotBlank;
 
 public class LoginUsuario {

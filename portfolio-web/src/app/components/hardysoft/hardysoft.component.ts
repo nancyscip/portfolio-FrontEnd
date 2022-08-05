@@ -24,7 +24,7 @@ export class HardysoftComponent implements OnInit {
     private tokenService: TokenService
   ) { }
 
-  isloged = () => this.tokenService.loggedIn();
+  
 
   ngOnInit(): void {
     this.getSkills();

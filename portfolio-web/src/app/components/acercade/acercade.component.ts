@@ -15,7 +15,8 @@ export class AcercadeComponent implements OnInit{
   public personas!: Persona[]; 
   public editPersona!: Persona;
   public deletePersona!: Persona;
-
+  roles!: string[];
+  isAdmin: boolean = false;
 
   constructor(private personaService: PersonaService){}
 

@@ -9,6 +9,7 @@ import com.portfolioweb.nancy.security.enums.RolNombre;
 import com.portfolioweb.nancy.security.interfaces.RolService;
 import com.portfolioweb.nancy.security.interfaces.UsuarioService;
 import com.portfolioweb.nancy.security.jwt.JwtProvider;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +22,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
+
 import java.util.HashSet;
 import java.util.Set;
 

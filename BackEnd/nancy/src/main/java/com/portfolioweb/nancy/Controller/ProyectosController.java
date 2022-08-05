@@ -5,6 +5,7 @@ import com.portfolioweb.nancy.Interface.IProyectosService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,21 +29,21 @@ public class ProyectosController {
         return new ResponseEntity<>(proyecto, HttpStatus.OK);
     }
 
-    /* @PreAuthorize("hasRole('ADMIN')")*/
+    /* @PreAuthorize("hasRole('ADMIN')") */
     @PostMapping("/add")
     public ResponseEntity<Proyectos> addProyecto (@RequestBody Proyectos proyecto) {
         Proyectos newProyecto = iproyectosService.addProyecto(proyecto);
         return new ResponseEntity<>(newProyecto, HttpStatus.CREATED);
     }
 
-    /* @PreAuthorize("hasRole('ADMIN')")*/
+    /* @PreAuthorize("hasRole('ADMIN')") */
     @PutMapping("/update")
     public ResponseEntity<Proyectos> updateProyectos (@RequestBody Proyectos skill) {
         Proyectos updateProyectos = iproyectosService.updateProyectos(skill);
         return new ResponseEntity<>(updateProyectos, HttpStatus.OK);
     }
 
-    /* @PreAuthorize("hasRole('ADMIN')")*/
+    /* @PreAuthorize("hasRole('ADMIN')") */
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteProyecto (@PathVariable("id") Long id) {
         iproyectosService.deleteProyecto(id);

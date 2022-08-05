@@ -5,6 +5,7 @@ import com.portfolioweb.nancy.Interface.IExperienciaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,14 +31,14 @@ public class ExperienciaController{
         return new ResponseEntity<>(experiencia, HttpStatus.OK);
     }
 
-    /* @PreAuthorize("hasRole('ADMIN')")*/
+    /* @PreAuthorize("hasRole('ADMIN')") */
     @PostMapping("/add")
     public ResponseEntity<Experiencia> addExperiencia (@RequestBody Experiencia experiencia) {
         Experiencia newExperiencia =iexperienciaService.addExperiencia(experiencia);
         return new ResponseEntity<>(newExperiencia, HttpStatus.CREATED);
     }
 
-    /* @PreAuthorize("hasRole('ADMIN')")*/
+    /* @PreAuthorize("hasRole('ADMIN')") */
     @PutMapping("/update")
     public ResponseEntity<Experiencia> updateExperiencia (@RequestBody Experiencia experiencia) {
         Experiencia updateExperiencia =iexperienciaService.updateExperiencia(experiencia);

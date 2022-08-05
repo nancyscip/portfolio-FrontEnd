@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EastereggComponent } from './easteregg.component';
+import { EasterEggComponent } from './easter-egg.component';
 
-describe('EastereggComponent', () => {
-  let component: EastereggComponent;
-  let fixture: ComponentFixture<EastereggComponent>;
+describe('EasterEggComponent', () => {
+  let component: EasterEggComponent;
+  let fixture: ComponentFixture<EasterEggComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EastereggComponent ]
+      declarations: [ EasterEggComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(EastereggComponent);
+    fixture = TestBed.createComponent(EasterEggComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
