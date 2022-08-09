@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Persona } from 'src/app/interface/persona.interface';
 import { PersonaService } from 'src/app/service/persona.service';
 import { NgForm } from '@angular/forms';
+import { TokenService } from 'src/app/service/token.service';
 
 
 
@@ -12,16 +13,25 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./acercade.component.css'],
 })
 export class AcercadeComponent implements OnInit{
-  public personas!: Persona[]; 
-  public editPersona!: Persona;
+  public personas: Persona[] = []; 
+  public editPersona: Persona | undefined;
   public deletePersona!: Persona;
   roles!: string[];
   isAdmin: boolean = false;
 
-  constructor(private personaService: PersonaService){}
+
+  constructor(private personaService: PersonaService,
+  private tokenService: TokenService
+  ){}
 
   ngOnInit() {
     this.getPersonas();
+    this.roles = this.tokenService.getAuthorities();
+    this.roles.forEach(role => {
+      if (role === 'ROLE_ADMIN') {
+        this.isAdmin = true;
+      }
+    });
   }
 
 public getPersonas(): void{

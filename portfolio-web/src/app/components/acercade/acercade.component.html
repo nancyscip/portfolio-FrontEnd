@@ -3,13 +3,13 @@
                <div class="imagen" *ngFor="let person of personas">
                 <img src={{person.img}} alt="fotoperfil" class="img-fluid" id="fotodeperfil">
                 <div id="eliminar-editar-sobre_mi" *ngIf="isAdmin">
-                  <button (click)="onOpenModal(null!,'add')" type="button" class="botones_contenido" title="anadir">
+                  <button (click)="onOpenModal(null!,'add')" class="botones_contenido" title="anadir">
                       <i class="fa-solid fa-plus"></i>
                   </button>
-                  <button (click)="onOpenModal(person,'edit')" type="button" class="botones_contenido" title="editar">
+                  <button (click)="onOpenModal(person,'edit')"  class="botones_contenido" title="editar">
                       <i class="fa-solid fa-pen"></i>
                   </button>
-                  <button (click)="onOpenModal(person,'delete')"  type="button" class="botones_contenido" title="borrar">
+                  <button (click)="onOpenModal(person,'delete')"  class="botones_contenido" title="borrar">
                       <i class="fa-solid fa-eraser"></i>  
                   </button>
                 </div>
@@ -82,31 +82,33 @@
 
       <!----------------Abrir modal de adición de persona---->
   
-        <div class="modal fade" id="addPersonaModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addPersonaModalLabel" aria-hidden="true">
+        <div class="modal fade" id="addPersona" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addPersonaModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="addPersonaModalLabel">Agregar Persona</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
       <div class="modal-body">
         <form #addForm="ngForm" (ngSubmit)="onAddPersona(addForm)">
           <label for="nombre">Nombre</label><br>
-          <input ngModel type="text" ngModel name="nombre"  class="form-control">
+          <input ngModel type="text" name="nombre"  class="form-control">
           <label for="apellido">Apellido</label>
-          <input ngModel type="text" ngModel name="apellido" class="form-control">
+          <input ngModel type="text" name="apellido" class="form-control">
           <label for="titulo">Ocupación</label><br>
-          <input ngModel type="text" ngModel name="titulo"  class="form-control">
+          <input ngModel type="text"  name="titulo"  class="form-control">
           <label for="domicilio">Ciudad, Provincia, País</label><br>
-          <input ngModel type="text" ngModel name="domicilio"  class="form-control">
+          <input ngModel type="text"  name="domicilio"  class="form-control">
           <label for="telefono">Teléfono</label><br>
-          <input ngModel type="text" ngModel name="telefono"  class="form-control">
+          <input ngModel type="text"  name="telefono"  class="form-control">
           <label for="correo">Correo Electrónico</label><br>
-          <input ngModel type="text" ngModel name="correo"  class="form-control">
+          <input ngModel type="text"  name="correo"  class="form-control">
           <label for="sobre_mi">Sobre Mí</label><br>
-          <input ngModel type="text" ngModel name="sobre_mi"  class="form-control">
+          <input ngModel type="text"  name="sobre_mi"  class="form-control">
           <label for="img">Imagen</label><br>
-          <input ngModel type="text" ngModel name="img"  class="form-control"><br>
+          <input ngModel type="text"  name="img"  class="form-control"><br>
           <div class="modal-footer">
       </div>
       <div class="modal-footer">
