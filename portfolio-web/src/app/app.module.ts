@@ -12,12 +12,15 @@ import { HardysoftComponent } from './components/hardysoft/hardysoft.component';
 import { LogoApComponent } from './components/logo-ap/logo-ap.component';
 import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { createPopper } from '@popperjs/core/lib/popper-lite.js';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './components/login/login.component';
-import { LoginService} from './login.service';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { PersonaService } from './service/persona.service';
+import { HomeComponent } from './components/home/home.component';
+import { EastereggComponent } from './components/easter-egg/easter-egg.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -32,6 +35,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     LogoApComponent,
     ProyectosComponent,
     LoginComponent,
+    HomeComponent,
+    EastereggComponent,
   ],
   
   imports: [
@@ -40,16 +45,19 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     NgbModule,
     NgCircleProgressModule.forRoot({}),
     HttpClientModule, 
+    FormsModule,
+    ReactiveFormsModule
+ 
+  
   ],
-  providers: [LoginService],
+  providers: [
+  PersonaService],
+ 
   bootstrap: [AppComponent]
 })
 export class AppModule { }
 
 
-imports: [
-    
-]
 
 
  

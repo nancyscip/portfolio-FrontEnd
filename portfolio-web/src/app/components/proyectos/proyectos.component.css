@@ -1,6 +1,13 @@
 div{
     background-color: #010005;
 }
+h5{
+    color: #3a03bb;
+  }
+  label {
+    color: cadetblue;
+  }
+
 br{
     background-color: #010005;
 }
@@ -21,4 +28,10 @@ footer{
     color: #fefefe;
     text-align: center;
     text-shadow: dimgray;
+}
+#creacion{
+    text-align: right;
+}
+.row{
+    background-color: #010005;
 }

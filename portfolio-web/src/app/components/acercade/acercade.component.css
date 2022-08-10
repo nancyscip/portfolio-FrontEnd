@@ -30,16 +30,16 @@ top: 720px;
   }
 
   /*id nombre*/
-#nombre{
+#nombre1{
   margin-top: 7%;
     font-weight: bolder;
-    font-size:x-large ;
+    font-size: x-large ;
     font-family: Arial, Helvetica, sans-serif;
     
   }
 
   /*id titulo*/
-  #titulo{
+  #titulo1{
     font-weight: bold;
   }
 h1{
@@ -51,4 +51,21 @@ h5{
 }
 #mail, #telefono, #ciudad{
   font-style: italic;
+}
+strong{
+  color:rgb(172, 116, 5);
+}
+.botones_contenido {
+  border: none;
+  background: none;
+  padding: 2px;
+  color:aliceblue;
+}
+label {
+  color: cadetblue;
+}
+
+#botones-img {
+  margin-top: 150%;
+  margin-left: 60%;
 }

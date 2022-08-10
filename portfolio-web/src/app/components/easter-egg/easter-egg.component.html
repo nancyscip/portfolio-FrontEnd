@@ -1,0 +1,50 @@
+<div class="container">
+    <p></p>
+    <p></p>
+    <h1>Juego SNAKE</h1>
+    <p></p>
+    <p></p>
+    <div class="d-grid gap-1 col-6 mx-auto">
+      <button type="button" class="btn btn-success" (click)="home()">Regresar al Home</button>
+     </div>
+  
+  
+    <div class="container2" style="background-color: #282846" >
+      <div class="container2" >
+        <div class="score-card">
+          <div class="score-board">
+            <h1>Score</h1>
+            <h3>{{food?.currentScore}}</h3>
+          </div>
+          <div class="restart-button" >
+            RESTART
+          </div>
+        </div>
+        <div class="game-over" *ngIf="gameOver">
+          <h1>Game Over</h1>
+        </div>
+  
+        <div class="game-board">
+        </div>
+        <div class="mobile-controls">
+          <h2>Pad para el teléfono</h2>
+          <nav class="o-pad">
+            <a class="up" (click)="dpadMovement('ArrowUp')"></a>
+            <a class="right" (click)="dpadMovement('ArrowRight')"></a>
+            <a class="down" (click)="dpadMovement('ArrowDown')"></a>
+            <a class="left" (click)="dpadMovement('ArrowLeft')"></a>
+          </nav>
+        </div>
+  
+      </div>
+  
+  
+    </div>
+  
+  
+  
+  
+  </div>
+  <div class="d-grid gap-1 col-6 mx-auto">
+ <button type="button" class="btn btn-success" (click)="home()">Regresar al Home</button>
+</div>

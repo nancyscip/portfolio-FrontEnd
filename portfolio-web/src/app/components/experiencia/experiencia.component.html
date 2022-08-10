@@ -1,78 +1,142 @@
-<div class="row">
-    <h1>Experiencia Laboral</h1>
+ <div class="row">
+   
+      <h1>Experiencia Laboral<button *ngIf="isAdmin" (click)="onOpenModal(null!,'add')" type="button" class="botones_contenido" title="anadir" data-bs-toggle="modal" data-bs-target="#addExperienciaModal">
+        <i class="fa-solid fa-plus"></i>
+    </button></h1>
+
     <div class="col-lg-1"></div>
     <div class="col-lg-10">
+        <br>
+    <br>
         <div class="accordion" id="accordionExample">
-            <div class="accordion-item">
+            <div class="accordion-item" *ngFor="let exp of experiencia">
               <h2 class="accordion-header" id="headingOne">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                  <strong>Representante de atención al cliente.</strong>
+                  <strong>{{exp.cargo}}</strong>
                 </button>
               </h2>
               <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                    <p><strong>Apex América <img src="../../../assets/apex1.jpg" alt=""> Jornada Parcial /// Noviembre 2011 - Junio 2017 (5 años 8 meses)</strong></p>
-                    <br>
-                    <p>Atención telefónica de reclamos y dudas para clientes de la banda ancha Speedy. Solución en línea. Atención de consultas sobre OnVideo. Soporte técnico de banda ancha. Soporte para nuevos clientes. Manejo de sistemas. Manejo de información personal.</p>
-                </div>
-              </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingTwo">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    <strong>Telemarketer.</strong>
-                  </button>
-                </h2>
-                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                  <div class="accordion-body">
-                    <p><strong>Diario Cruz del Sur <img src="../../../assets/diario1.jpg" alt=""> Jornada Parcial /// Agosto 2011 - Septiembre 2011 (2 meses)</strong></p>
-                    <br>
-                <p>Venta de avisos clasificados, publicidad y suscripciones para un semanario.</p>
-                  </div>
-                </div>
-              </div>  
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingThree">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    <strong>Armado y Reparación de PC.</strong>
-                  </button>
-                </h2>
-                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                  <div class="accordion-body">
-                    <p><strong>Cuenta Propia <img src="../../../assets/compu1.jpg" alt=""> Full Time /// Noviembre 2001 - Agosto 2011 (9 años 10 meses)</strong></p>
-                    <br>
-                    <p>Diagnóstico de fallas. Reemplazo de piezas dañadas. Instalación y configuración de hardware. Instalación y configuración de sistemas operativos. Instalación y configuración de programas. Instalación y configuración de antivirus. Particionado de discos rígidos. Armado de una computadora personal.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingFour">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                    <strong>Recepcionista y Telefonista.</strong>
-                  </button>
-                </h2>
-                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
-                  <div class="accordion-body">
-                    <p><strong>Radio Taxi Estrella <img src="../../../assets/taxi1.jpg" alt=""> Full Time /// Febrero 2003 - Agosto 2003 (7 meses)</strong></p>
+                      <p><strong>{{exp.nombre_empresa}} /// {{exp.fecha_inicio}} - {{exp.fecha_fin}}</strong></p>
                       <br>
-                      <p>Atención de clientes en forma personal y telefónica. Registro de las asientos en el libro diario de la empresa.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingFive">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                    <strong>Recepcionista y Telefonista.</strong>
-                  </button>
-                </h2>
-                <div id="collapseFive" class="accordion-collapse collapse hide" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
-                  <div class="accordion-body">
-                    <p><strong>Remisses Santa Rita <img src="../../../assets/remisse1.jpg" alt=""> Full Time /// Octubre 2002 - Enero 2003 (4 meses)</strong></p>
-                      <br>
-                      <p>Atención de clientes en forma personal y telefónica. Registro de las asientos en el libro diario de la empresa.</p>
-                  </div>
-                </div>
-              </div>
-            </div>  
+                      <p>{{exp.descripcion}}</p>
+                      <div id="eliminar-editar-trabajos" *ngIf="isAdmin">                    
+                <button (click)="onOpenModal(exp,'edit')" type="button" class="botones_contenido" title="boton-editar" data-bs-toggle="modal" data-bs-target="#updateExperienciaModal">
+                    <i class="fa-solid fa-pen"></i>
+                </button>
+                <button (click)="onOpenModal(exp,'delete')" type="button" class="botones_contenido" title="boton-borrar" data-bs-toggle="modal" data-bs-target="#deleteExperienciaModal" >
+                    <i class="fa-solid fa-eraser"></i>
+                </button>     
+            </div> 
+        </div>
     </div>
-  </div>
+</div>
+
+
+<!-- Modal para agregar Experiencia -->
+<div class="modal fade" id="addExperienciaModal" role="dialog" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="addExperienciaModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addExperienciaModalLabel">Agregar Experiencia</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form #addForm="ngForm" (ngSubmit)="onAddExperiencia(addForm)">
+                    <div class="form-group">
+                        <input type="hidden" ngModel name="id" class="form-control" id="id" placeholder="Id">
+                    <label for="cargo">Puesto</label>
+                    <input type="text" ngModel name="cargo"  class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                    <label for="nombre_empresa">Empresa</label>
+                    <input type="text" ngModel name="nombre_empresa"  class="form-control" required>
+                </div>
+                    <div class="form-group">
+                    <label for="fecha_inicio">Fecha de Inicio</label>
+                    <input type="text" ngModel name="fecha_inicio"  class="form-control" required>
+                </div>
+                    <div class="form-group">
+                    <label for="fecha_fin">Fecha de Finalización</label>
+                    <input type="text" ngModel name="fecha_fin"  class="form-control" required>
+                </div>
+            
+                    <div class="form-group">
+                    <label for="descripcion">Descripción</label>
+                    <input type="text" ngModel name="descripcion"  class="form-control" required>
+                </div>
+                    <div class="modal-footer">
+                        <button  type="button" id="add-experiencia-modal" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                        <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary" data-bs-dismiss="modal">Agregar</button>
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</div>
+<!-- Modal para actualizar Experiencia -->
+<div class="modal fade" id="updateExperienciaModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="updateExperienciaModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updateExperienciaModalLabel">Editar Experiencia</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form #editForm="ngForm">
+                    <label for="cargo">Puesto</label><br>
+                    <input ngModel="{{editExperiencia?.cargo}} " type="text" name="cargo"  class="form-control"><br>
+                    <label for="nombre_empresa">Empresa</label><br>
+                    <input ngModel="{{editExperiencia?.nombre_empresa}}" type="text" name="nombre_empresa"  class="form-control">
+                    <label for="fecha_inicio">Fecha de Inicio</label><br>
+                    <input ngModel="{{editExperiencia?.fecha_inicio}}" type="text" name="fecha_inicio"  class="form-control">
+                    <label for="fecha_fin">Fecha de Finalización</label><br>
+                    <input ngModel="{{editExperiencia?.fecha_fin}}" type="text" name="fecha_fin"  class="form-control">
+                    <label for="descripcion">Descripción</label><br>
+                    <input ngModel="{{editExperiencia?.descripcion}}" type="text" name="descripcion"  class="form-control">
+                    <input type="hidden" name="id" ngModel="{{editExperiencia?.id}} ">
+                    <div class="modal-footer">
+                        <button id="update-experiencia-modal" type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancelar</button>
+                        <button (click)="onUpdateExperiencia(editForm.value)" type="button" class="btn btn-danger" data-bs-dismiss="modal">Guardar cambios</button>
+                    </div>
+                </form>
+            </div>
+            
+            
+            
+            
+        </div>
+    </div>
+</div>
+
+<!-- Modal para borrar Experiencia -->
+<div class="modal fade" id="deleteExperienciaModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="deleteExperienciaModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Esta acción eliminará  "{{deleteExperiencia?.cargo}}". ¿Desea continuar?</p>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">No</button>
+            <button (click)="onDeleteExperiencia(deleteExperiencia.id)" type="button" class="btn btn-danger" data-bs-dismiss="modal">Sí</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+                  </div>
+                </div>
+                </div>
+        
+              
