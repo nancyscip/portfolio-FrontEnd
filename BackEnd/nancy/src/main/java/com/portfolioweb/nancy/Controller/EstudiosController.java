@@ -8,10 +8,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @CrossOrigin(origins = "*")
 @RestController
+@Transactional
 @RequestMapping("/estudios")
 public class EstudiosController {
     @Autowired

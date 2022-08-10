@@ -19,7 +19,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { PersonaService } from './service/persona.service';
 import { HomeComponent } from './components/home/home.component';
 import { EastereggComponent } from './components/easter-egg/easter-egg.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -46,6 +46,7 @@ import { EastereggComponent } from './components/easter-egg/easter-egg.component
     NgCircleProgressModule.forRoot({}),
     HttpClientModule, 
     FormsModule,
+    ReactiveFormsModule
  
   
   ],
@@ -57,9 +58,6 @@ import { EastereggComponent } from './components/easter-egg/easter-egg.component
 export class AppModule { }
 
 
-imports: [
-    
-]
 
 
  

@@ -1,6 +1,11 @@
 div{
         background-color: #010005;
+        text-align: left;
     }
+
+    h5{
+        color: #3a03bb;
+      }
 
 
 h1{
@@ -17,3 +22,6 @@ h1{
 p{
     color: cadetblue;
 }
+label {
+    color: cadetblue;
+  }

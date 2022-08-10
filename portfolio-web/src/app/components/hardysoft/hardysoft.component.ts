@@ -1,10 +1,10 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormControl, NgForm } from '@angular/forms';
 import { SkillService } from 'src/app/service/hardysoft.service';
 import { TokenService } from 'src/app/service/token.service';
 import { Skill } from '../../interface/hardysoft.interface';
-import { CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+
 
 @Component({
   selector: 'app-hardysoft',
@@ -14,10 +14,12 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/dra
 export class HardysoftComponent implements OnInit {
 
   public skills!: Skill[];
-  public editSkill!: Skill;
+  public editSkill: Skill | undefined;
   public deleteSkill!: Skill;
   roles: string[] = [];
   isAdmin = false;
+
+  name = new FormControl('');
 
   constructor(
     private skillService: SkillService,
@@ -49,7 +51,7 @@ export class HardysoftComponent implements OnInit {
   }
 
   public onAddSkill(addForm: NgForm): void {
-    document.getElementById("add-skill-form")!.click();
+    document.getElementById("add-skill-form")?.click();
     this.skillService.addSkill(addForm.value).subscribe({
       next: (response: Skill) => {
         console.log(response);
@@ -64,7 +66,7 @@ export class HardysoftComponent implements OnInit {
   }
 
   public onEditSkill(skill: Skill): void {
-    this.skillService.updateSkill(skill).subscribe({
+    this.skillService.editSkill(skill).subscribe({
       next: (response: Skill) => {
         console.log(response);
         this.getSkills();

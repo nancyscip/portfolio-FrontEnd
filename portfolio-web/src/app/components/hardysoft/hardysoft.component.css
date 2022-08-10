@@ -2,6 +2,13 @@
     background-color: #010005;
     }
 
+    div{
+        background-color: #010005;
+        text-align: left;
+    }
+    h5{
+        color: #3a03bb;
+      }
 
     h1{
         margin-left: 20px;
@@ -18,3 +25,7 @@
   height: 300px;
   align-content: space-between;
  }
+
+ label {
+    color: cadetblue;
+  }

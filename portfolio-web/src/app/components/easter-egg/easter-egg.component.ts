@@ -2,6 +2,8 @@ import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {Food} from "./game-engine/food";
 import {Snake} from "./game-engine/snake";
 import {outsideGrid} from "./game-engine/gameboard-grid.util";
+import { Router } from '@angular/router';
+import { HomeComponent } from '../home/home.component';
 
 @Component({
   selector: 'app-easteregg',
@@ -21,6 +23,11 @@ export class EastereggComponent  implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     this.gameBoard = document.querySelector('.game-board');
     window.requestAnimationFrame(this.start.bind(this));
+  }
+  constructor(private router: Router) { }
+
+  home(){
+    this.router.navigate([''])
   }
 
   ngOnInit(): void {

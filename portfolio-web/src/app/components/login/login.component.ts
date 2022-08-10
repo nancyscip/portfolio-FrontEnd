@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { LoginUsuario } from '../../interface/login-usuario';
 import { AuthService } from '../../service/auth.service';
 import { TokenService } from '../../service/token.service';
+import { HomeComponent } from '../home/home.component';
 
 @Component({
   selector: 'app-login',
@@ -24,9 +25,13 @@ export class LoginComponent implements OnInit {
     private tokenService: TokenService,
     private authService: AuthService,
     private router: Router
-  ) {
+  ) {}
+
+    home(){
+      this.router.navigate([''])
+    }
     
-  }
+  
 
   ngOnInit() {
     if(this.tokenService.getToken()){

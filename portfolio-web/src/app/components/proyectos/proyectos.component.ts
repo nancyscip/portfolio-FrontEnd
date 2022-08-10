@@ -1,9 +1,10 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormControl, NgForm } from '@angular/forms';
 import { TokenService } from '../../service/token.service';
 import { Proyecto } from '../../interface/proyectos.interface';
 import { ProyectosService } from '../../service/proyectos.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,15 +14,21 @@ import { ProyectosService } from '../../service/proyectos.service';
 })
 export class ProyectosComponent implements OnInit {
   public proyectos!: Proyecto[];
-  public editProyectos!: Proyecto;
+  public editProyectos: Proyecto | undefined;
   public deleteProyectos!: Proyecto;
   roles: string[] = []
   isAdmin: boolean = false;
-  
+
+  name = new FormControl('');
 
   constructor(private proyectosService: ProyectosService,
-    private tokenService: TokenService
+    private tokenService: TokenService,
+    private router: Router
     ) { }
+
+    easteregg(){
+      this.router.navigate(['/easteregg'])
+    }
 
   ngOnInit() {
     this.getProyectos();

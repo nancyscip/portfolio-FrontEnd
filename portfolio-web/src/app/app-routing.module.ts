@@ -8,7 +8,7 @@ import { EastereggComponent} from './components/easter-egg/easter-egg.component'
 const routes: Routes = [
   {path:'', component: HomeComponent},
   {path:'login', component: LoginComponent},
-  {path:'easter-egg', component: EastereggComponent}
+  {path:'easteregg', component: EastereggComponent}
 ]
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

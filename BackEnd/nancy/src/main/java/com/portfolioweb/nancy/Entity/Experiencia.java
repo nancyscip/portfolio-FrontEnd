@@ -20,18 +20,16 @@ public class Experiencia implements Serializable {
     private String nombre_empresa;
     private String fecha_inicio;
     private String fecha_fin;
-    private Boolean es_trabajo_actual;
     private String descripcion;
 
     public Experiencia(){}
 
-    public Experiencia(Long id, String cargo, String nombre_empresa, String fecha_inicio, String fecha_fin, Boolean es_trabajo_actual, String descripcion){
+    public Experiencia(Long id, String cargo, String nombre_empresa, String fecha_inicio, String fecha_fin, String descripcion){
         this.id = id;
         this.cargo = cargo;
         this.nombre_empresa = nombre_empresa;
         this.fecha_inicio = fecha_inicio;
         this.fecha_fin = fecha_fin;
-        this.es_trabajo_actual = es_trabajo_actual;
         this.descripcion = descripcion;
     }
 
@@ -75,14 +73,6 @@ public class Experiencia implements Serializable {
         this.fecha_fin = fecha_fin;
     }
 
-    public Boolean getEs_trabajo_actual() {
-        return es_trabajo_actual;
-    }
-
-    public void setEs_trabajo_actual(Boolean es_trabajo_actual) {
-        this.es_trabajo_actual = es_trabajo_actual;
-    }
-
     public String getDescripcion() {
         return descripcion;
     }
@@ -99,7 +89,6 @@ public class Experiencia implements Serializable {
                 ",nombre_empresa=" + nombre_empresa +
                 ",fecha_inicio=" + fecha_inicio +
                 ",fecha_fin=" + fecha_fin +
-                ",es_trabajo_actual=" + es_trabajo_actual +
                 ",descripcion=" + descripcion + '\'' +
                 '}';
     }

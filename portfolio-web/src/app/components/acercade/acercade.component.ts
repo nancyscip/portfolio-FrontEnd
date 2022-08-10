@@ -2,9 +2,9 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Persona } from 'src/app/interface/persona.interface';
 import { PersonaService } from 'src/app/service/persona.service';
-import { NgForm } from '@angular/forms';
+import { FormControl, NgForm } from '@angular/forms';
 import { TokenService } from 'src/app/service/token.service';
-
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
@@ -19,6 +19,7 @@ export class AcercadeComponent implements OnInit{
   roles!: string[];
   isAdmin: boolean = false;
 
+  name = new FormControl('');
 
   constructor(private personaService: PersonaService,
   private tokenService: TokenService
@@ -59,7 +60,7 @@ public onAddPersona(addForm: NgForm):void {
   )
   
 }
-public onUpdatePersona(persona: Persona):void {
+public onEditPersona(persona: Persona):void {
   this.personaService.updatePersona(persona).subscribe(
   (response: Persona) => {
     console.log(response);
@@ -73,8 +74,8 @@ public onUpdatePersona(persona: Persona):void {
 
 }
 
-public onDeletePersona(id: number):void {
-this.personaService.deletePersona(id).subscribe(
+public onDeletePersona(personaId: number):void {
+this.personaService.deletePersona(personaId).subscribe(
 (response: void) => {
   console.log(response);
   this.getPersonas();
@@ -98,7 +99,7 @@ public onOpenModal(persona: Persona, mode: string): void {
   }
 if (mode === 'edit'){
   this.editPersona = persona;
-  button.setAttribute('data-target', '#editPersonaModal');
+  button.setAttribute('data-target', '#updatePersonaModal');
 }
 if (mode === 'delete'){
   this.deletePersona = persona;

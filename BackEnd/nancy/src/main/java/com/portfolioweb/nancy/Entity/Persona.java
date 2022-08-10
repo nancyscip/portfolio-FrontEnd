@@ -2,6 +2,8 @@
 package com.portfolioweb.nancy.Entity;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 import java.io.Serializable;
@@ -13,7 +15,7 @@ import javax.validation.constraints.Size;
 @Getter @Setter
 @Entity
 
-public class Persona implements Serializable {
+public class Persona {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO )
@@ -30,22 +32,29 @@ public class Persona implements Serializable {
     private String img;
     private String titulo;
 
+    @JsonIgnoreProperties("persona")
     @OneToMany(cascade = CascadeType.ALL, targetEntity = Estudios.class)
     @JoinColumn(name = "ed_fk", referencedColumnName = "id")
     private List<Estudios> estudiosList;
+
+    @JsonIgnoreProperties("persona")
     @OneToMany(cascade = CascadeType.ALL, targetEntity = Experiencia.class)
     @JoinColumn(name = "ex_fk", referencedColumnName = "id")
     private List<Experiencia> experienciaList;
+
+    @JsonIgnoreProperties("persona")
     @OneToMany(cascade = CascadeType.ALL, targetEntity = Skills.class)
     @JoinColumn(name = "sk_fk", referencedColumnName = "id")
     private List<Skills> skillsList;
+
+    @JsonIgnoreProperties("persona")
     @OneToMany(cascade = CascadeType.ALL, targetEntity = Proyectos.class)
     @JoinColumn(name = "pr_fk", referencedColumnName = "id")
     private List<Proyectos> proyectosList;
 
     public Persona(){
     }
-    public Persona(Long id, String nombre, String apellido, String telefono, String correo, String sobre_mi, String img, String titulo, List<Estudios> estudiosList, List<Experiencia> experienciaList, List<Skills> skillsList, List<Proyectos> proyectosList ){
+    public Persona(Long id, String nombre, String apellido, String telefono, String correo, String sobre_mi, String img, String titulo){
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -55,10 +64,6 @@ public class Persona implements Serializable {
         this.domicilio = domicilio;
         this.img = img;
         this.titulo = titulo;
-        this.estudiosList = estudiosList;
-        this.experienciaList = experienciaList;
-        this.skillsList = skillsList;
-        this.proyectosList = proyectosList;
     }
 
     public Long getId() {
@@ -133,37 +138,7 @@ public class Persona implements Serializable {
         this.titulo = titulo;
     }
 
-    public List<Estudios> getEstudiosList() {
-        return estudiosList;
-    }
 
-    public void setEstudiosList(List<Estudios> estudiosList) {
-        this.estudiosList = estudiosList;
-    }
-
-    public List<Experiencia> getExperienciaList() {
-        return experienciaList;
-    }
-
-    public void setExperienciaList(List<Experiencia> experienciaList) {
-        this.experienciaList = experienciaList;
-    }
-
-    public List<Skills> getSkillsList() {
-        return skillsList;
-    }
-
-    public void setSkillsList(List<Skills> skillsList) {
-        this.skillsList = skillsList;
-    }
-
-    public List<Proyectos> getProyectosList() {
-        return proyectosList;
-    }
-
-    public void setProyectosList(List<Proyectos> proyectosList) {
-        this.proyectosList = proyectosList;
-    }
 
     @Override
     public String toString() {
@@ -177,10 +152,6 @@ public class Persona implements Serializable {
                 ", domicilio='" + domicilio + '\'' +
                 ", img='" + img + '\'' +
                 ", titulo='" + titulo + '\'' +
-                ", estudiosList=" + estudiosList +
-                ", experienciaList=" + experienciaList +
-                ", skillsList=" + skillsList +
-                ", proyectosList=" + proyectosList +
                 '}';
     }
 }

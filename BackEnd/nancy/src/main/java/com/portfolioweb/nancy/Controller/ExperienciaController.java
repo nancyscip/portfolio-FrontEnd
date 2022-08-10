@@ -8,10 +8,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "*")
+@Transactional
 @RequestMapping("/experiencia")
 
 public class ExperienciaController{

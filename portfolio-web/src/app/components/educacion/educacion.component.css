@@ -1,7 +1,10 @@
 div{
-        background-color: #010005;
-    }
-    
+    background-color: #010005;
+    text-align: left;
+}
+h5{
+    color: #3a03bb;
+  }
     h1{
         margin-left: 20px;
         font-style: italic;
@@ -21,3 +24,6 @@ img{
     width:70px;
     height:50px;
 }
+label {
+    color: cadetblue;
+  }

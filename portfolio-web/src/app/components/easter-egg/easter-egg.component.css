@@ -16,6 +16,9 @@
     --dpad-arrow-shift: 5px ;
     --dpad-arrow-move: 35%;
   }
+  h1{
+    text-align: center;
+  }
   .container2 {
     margin: 0  ;
     height: 100%  ;
