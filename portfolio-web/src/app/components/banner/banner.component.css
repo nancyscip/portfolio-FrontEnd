@@ -1,9 +1,9 @@
 img{
-    width: 100%;
+    width: 100vw;
     height: 600px;
 }
 
-.row-fluid{
+.row{
     background-color: #010005;
 }
 .centrado{
