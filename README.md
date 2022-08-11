@@ -8,12 +8,12 @@
 
 ### Fueron utilizadas las siguientes herramientas:
 
-# Angular (https://angular.io/): versión 14.0.0/14.0.1 .
-# Bootstrap (https://getbootstrap.com/): versión 5.1.3 .
-# Ng-bootstrap (https://ng-bootstrap.github.io/#/home): versión 12.1.2 .
-# Ng circle-progress (https://github.com/bootsoon/ng-circle-progress#readme): versión 1.6.0 .
-# Jquery (https://jquery.com/): versión 3.6.0 .
-# Popper (https://popper.js.org/): versión 2.11.5 .
+### Angular (https://angular.io/): versión 14.0.0/14.0.1 .
+### Bootstrap (https://getbootstrap.com/): versión 5.1.3 .
+### Ng-bootstrap (https://ng-bootstrap.github.io/#/home): versión 12.1.2 .
+### Ng circle-progress (https://github.com/bootsoon/ng-circle-progress#readme): versión 1.6.0 .
+### Jquery (https://jquery.com/): versión 3.6.0 .
+### Popper (https://popper.js.org/): versión 2.11.5 .
 
 #### Portfolio en continuo desarrollo y mejora. 
 
