@@ -30,3 +30,11 @@
  label {
     color: cadetblue;
   }
+  p{
+    color: cadetblue;
+  }
+  @media(max-width:576px){
+    .circulo{
+      margin-left: 20px;
+    }
+  }

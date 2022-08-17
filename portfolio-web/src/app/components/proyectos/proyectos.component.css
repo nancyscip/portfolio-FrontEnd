@@ -7,6 +7,9 @@ h5{
   label {
     color: cadetblue;
   }
+  #textoborrar{
+    color:cadetblue;
+  }
 
 br{
     background-color: #010005;
@@ -34,4 +37,9 @@ footer{
 }
 .row{
     background-color: #010005;
+}
+@media(max-width:576px){
+   #tarjeta{
+    padding-left: 12%;
+   }
 }

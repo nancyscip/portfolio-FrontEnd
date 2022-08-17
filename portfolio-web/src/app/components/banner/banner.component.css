@@ -17,3 +17,19 @@ img{
     font-style: italic;
     text-align: center;
 }
+
+@media(min-width:576px){
+    .centrado{
+        position: absolute;
+       top: 50%;
+
+    }
+}
+
+@media(max-width:576px){
+    .centrado{
+        position: absolute;
+       top: 120%;
+
+    }
+}
