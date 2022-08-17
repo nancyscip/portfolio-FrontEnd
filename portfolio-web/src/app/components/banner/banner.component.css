@@ -6,30 +6,46 @@ img{
 .row{
     background-color: #010005;
 }
-.centrado{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: rgb(79, 76, 83);
-    font-size: xx-large;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-style: italic;
-    text-align: center;
-}
 
-@media(min-width:576px){
+
+
+@media only screen and (min-width: 600px){
     .centrado{
         position: absolute;
-       top: 50%;
-
+       top: 20%;
+       left: 50%;
+       transform: translate(-50%, -50%);
+       color: rgb(79, 76, 83);
+       font-size: xx-large;
+       font-family: Georgia, 'Times New Roman', Times, serif;
+       font-style: italic;
+       text-align: center;
     }
 }
 
-@media(max-width:576px){
+@media only screen and (max-width: 600px){
     .centrado{
         position: absolute;
-       top: 120%;
-
+       top: 70%;
+       left: 50%;
+       transform: translate(-50%, -50%);
+       color: rgb(79, 76, 83);
+       font-size: xx-large;
+       font-family: Georgia, 'Times New Roman', Times, serif;
+       font-style: italic;
+       text-align: center;
+    }
+}
+@media only screen and (min-width: 1200px){
+    .centrado{
+        position: absolute;
+       top: 50%;
+       left: 50%;
+       transform: translate(-50%, -50%);
+       color: rgb(79, 76, 83);
+       font-size: xx-large;
+       font-family: Georgia, 'Times New Roman', Times, serif;
+       font-style: italic;
+       text-align: center;
     }
 }

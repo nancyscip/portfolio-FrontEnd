@@ -1,3 +1,6 @@
 export const environment = {
-  production: true
+  production: true,
+  apiBaseUrl: 'https://back-portfolionan.herokuapp.com',
+  apiAuthUrl: 'https://back-portfolionan.herokuapp.com/auth/',
 };
+

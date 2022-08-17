@@ -11,7 +11,7 @@ import { NuevoUsuario } from '../interface/nuevo-usuario';
 })
 export class AuthService {
   
-  url = environment.apiAuthUrl;;
+  private url = environment.apiAuthUrl;;
 
 
 

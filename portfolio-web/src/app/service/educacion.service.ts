@@ -8,6 +8,7 @@ import { Estudios } from '../interface/educacion.interface';
   providedIn: 'root'
 })
 export class EstudiosService {
+  
   private apiServerUrl = environment.apiBaseUrl;
 
   constructor(private http: HttpClient) { }
