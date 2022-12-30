@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  apiBaseUrl: 'https://back-portfolionan.herokuapp.com',
-  apiAuthUrl: 'https://back-portfolionan.herokuapp.com/auth/',
+  apiBaseUrl: 'https://backend-nancyscip.koyeb.app',
+  apiAuthUrl: 'https://backend-nancyscip.koyeb.app/auth/',
 };
 
